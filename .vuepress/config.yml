@@ -1,0 +1,9 @@
+title: Docker Workshop
+description: 工作坊實作記錄
+base: /docker-workshop/
+dest: dist
+themeConfig:
+  repo: "ganhuaking/docker-workshop"
+  repoLabel: "GitHub"
+  editLinks: true
+  editLinkText: 編輯這個頁面

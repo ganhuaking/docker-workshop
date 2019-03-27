@@ -26,3 +26,9 @@ Desktop.ini
 /.project
 /.buildpath
 /.settings
+
+# Node files
+/node_modules
+
+# vuepress dist files
+/dist
