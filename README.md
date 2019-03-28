@@ -24,3 +24,7 @@ CONTAINER ID    IMAGE   COMMAND CREATED STATUS  PORTS    NAMES
 ```
 
 若有正常出現上面表格的話，代表服務有正常啟動，已經可以開始使用 Docker 了。
+
+### Windows 10
+
+參考[官方文件](https://docs.docker.com/docker-for-windows/)，下載並安裝 Docker Desktop 即可。
