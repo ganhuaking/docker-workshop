@@ -3,6 +3,8 @@ description: 工作坊實作記錄
 base: /docker-workshop/
 dest: dist
 themeConfig:
+  sidebar:
+    - '/src/basic'
   repo: "ganhuaking/docker-workshop"
   repoLabel: "GitHub"
   editLinks: true
