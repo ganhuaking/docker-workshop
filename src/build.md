@@ -26,7 +26,7 @@ Build 的過程，就是不斷的 `docker run` 與 `docker commit`
 
 ### Example
 
-寫一個一定會成功執行的 Dockerfile，其實就是 FROM 一個一定存在的 image 即可。
+什麼是一定會成功執行的 Dockerfile？其實只要 FROM 存在的 image 即可。
 
 如 Golang 專案我們可以這樣寫：
 
