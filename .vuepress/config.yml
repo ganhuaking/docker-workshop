@@ -4,8 +4,9 @@ base: /docker-workshop/
 dest: dist
 themeConfig:
   sidebar:
-    - '/src/basic'
-  repo: "ganhuaking/docker-workshop"
-  repoLabel: "GitHub"
+    - /src/basic
+    - /src/build
+  repo: ganhuaking/docker-workshop
+  repoLabel: GitHub
   editLinks: true
   editLinkText: 編輯這個頁面
