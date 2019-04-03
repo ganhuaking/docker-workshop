@@ -1,8 +1,10 @@
 # Docker Workshop
 
-此為 [Docker](https://www.docker.com/) 工作坊記錄。
+[Docker](https://www.docker.com/) 工作坊記錄。
 
-事前準備如下：
+此活動由[蔣幹話軟體](https://ganhuaking.github.io/)發起，有興趣可以加入 [Discord](https://discord.io/ganhuaking) 討論。
+
+<img src="https://ganhuaking.github.io/logo.png" width="50%">
 
 ## 安裝 Docker
 
