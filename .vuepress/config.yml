@@ -6,6 +6,7 @@ themeConfig:
   sidebar:
     - /src/basic
     - /src/build
+    - /src/multi-stage-build.md
   repo: ganhuaking/docker-workshop
   repoLabel: GitHub
   editLinks: true
