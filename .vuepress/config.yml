@@ -4,7 +4,7 @@ base: /docker-workshop/
 dest: dist
 themeConfig:
   sidebar:
-    - /src/basic
+    - /src/01-basic
     - /src/build
     - /src/multi-stage-build.md
   repo: ganhuaking/docker-workshop
