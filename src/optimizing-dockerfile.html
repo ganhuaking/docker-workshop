@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Optimizing Dockerfile | Docker Workshop</title>
+    <meta name="description" content="工作坊實作記錄">
+    
+    
+    <link rel="preload" href="/docker-workshop/assets/css/0.styles.7579f2cc.css" as="style"><link rel="preload" href="/docker-workshop/assets/js/app.c28cb15c.js" as="script"><link rel="preload" href="/docker-workshop/assets/js/2.04e23506.js" as="script"><link rel="preload" href="/docker-workshop/assets/js/10.125241cb.js" as="script"><link rel="prefetch" href="/docker-workshop/assets/js/11.25c37429.js"><link rel="prefetch" href="/docker-workshop/assets/js/3.1cea77eb.js"><link rel="prefetch" href="/docker-workshop/assets/js/4.fec85292.js"><link rel="prefetch" href="/docker-workshop/assets/js/5.beef2362.js"><link rel="prefetch" href="/docker-workshop/assets/js/6.86b9dd2f.js"><link rel="prefetch" href="/docker-workshop/assets/js/7.f472d38d.js"><link rel="prefetch" href="/docker-workshop/assets/js/8.e98f8460.js"><link rel="prefetch" href="/docker-workshop/assets/js/9.85db3dc1.js">
+    <link rel="stylesheet" href="/docker-workshop/assets/css/0.styles.7579f2cc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/docker-workshop/" class="home-link router-link-active"><!----> <span class="site-name">Docker Workshop</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/ganhuaking/docker-workshop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/ganhuaking/docker-workshop" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docker-workshop/src/01-basic.html" class="sidebar-link">Docker 基本知識</a></li><li><a href="/docker-workshop/src/build.html" class="sidebar-link">Docker Build</a></li><li><a href="/docker-workshop/src/multi-stage-build.html" class="sidebar-link">Multi-stage Build</a></li><li><a href="/docker-workshop/src/optimizing-dockerfile.html" class="active sidebar-link">Optimizing Dockerfile</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docker-workshop/src/optimizing-dockerfile.html#多個-run-指令合併" class="sidebar-link">多個 RUN 指令合併</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="optimizing-dockerfile"><a href="#optimizing-dockerfile" class="header-anchor">#</a> Optimizing Dockerfile</h1> <p>最佳化 Dockerfile 通常指幾種面向：</p> <ol><li>最佳化 build 的過程
+<ul><li>過程越快越好</li> <li>有錯越早讓開發者知道越好</li></ul></li> <li>最佳化最終 image 的結果
+<ul><li>容量越小越好</li> <li>層數（layer）越少越好</li></ul></li> <li>最佳化 Dockerfile 的內容，也就是 coding style</li></ol> <blockquote><p>官網文件也有一篇在講 <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" target="_blank" rel="noopener noreferrer">Dockerfile 的最佳實踐<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，也可以參考看看</p></blockquote> <p>這個文件會拿幾個修改範例來讓大家知道，如何最佳化 Dockerfile。</p> <h2 id="多個-run-指令合併"><a href="#多個-run-指令合併" class="header-anchor">#</a> 多個 RUN 指令合併</h2> <p>下面是一個不好的範例：</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token keyword">FROM</span> alpine
+
+<span class="token keyword">RUN</span> apk update
+<span class="token keyword">RUN</span> apk add python
+<span class="token keyword">RUN</span> apk add make
+<span class="token keyword">RUN</span> apk add g++
+</code></pre></div><p>原因有兩個：第一，這些 run 指令可以合併成一層；第二 update 或 add 的安裝檔，有時會被 cache 下來，這會增加無用的容量。</p> <p>比較好的範例如下：</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token keyword">FROM</span> alpine
+
+<span class="token keyword">RUN</span> apk add <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache python make g++
+</code></pre></div><blockquote><p>apk 提供 <code>--no-cache</code> 參數將不會使用任何快取功能。</p></blockquote> <p>接著考慮可維護性，會改成如下：</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token keyword">FROM</span> alpine
+
+<span class="token keyword">RUN</span> apk add <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache \
+        python \
+        make \
+        g++
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/ganhuaking/docker-workshop/edit/master/src/optimizing-dockerfile.md" target="_blank" rel="noopener noreferrer">編輯這個頁面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docker-workshop/src/multi-stage-build.html" class="prev">Multi-stage Build</a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/docker-workshop/assets/js/app.c28cb15c.js" defer></script><script src="/docker-workshop/assets/js/2.04e23506.js" defer></script><script src="/docker-workshop/assets/js/10.125241cb.js" defer></script>
+  </body>
+</html>
