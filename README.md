@@ -6,7 +6,7 @@
 
 此活動由[蔣幹話軟體](https://ganhuaking.github.io/)發起，有興趣可以加入 [Discord](https://discord.io/ganhuaking) 討論。
 
-<img src="https://ganhuaking.github.io/logo.png" width="50%">
+<img src="https://ganhuaking.tw/img/ghk_2021.svg" width="50%">
 
 ## 安裝 Docker
 
