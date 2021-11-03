@@ -1,10 +1,8 @@
 # Docker Workshop
 
-[![Build Status](https://travis-ci.com/ganhuaking/docker-workshop.svg?branch=master)](https://travis-ci.com/ganhuaking/docker-workshop)
-
 [Docker](https://www.docker.com/) 工作坊記錄。
 
-此活動由[蔣幹話軟體](https://ganhuaking.github.io/)發起，有興趣可以加入 [Discord](https://discord.io/ganhuaking) 討論。
+此活動由[蔣幹話軟體](https://ganhuaking.tw/)發起，有興趣可以加入 [Discord](https://discord.io/ganhuaking) 討論。
 
 <img src="https://ganhuaking.tw/img/ghk_2021.svg" width="50%">
 
