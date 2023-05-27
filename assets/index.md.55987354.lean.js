@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as r,O as o}from"./chunks/framework.1b1a3dad.js";const m=JSON.parse('{"title":"Docker Workshop","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),s={name:"index.md"},t=o("",14),n=[t];function c(i,l,p,d,h,k){return a(),r("div",null,n)}const g=e(s,[["render",c]]);export{m as __pageData,g as default};

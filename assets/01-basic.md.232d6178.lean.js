@@ -1,0 +1,1 @@
+import{_ as a,o as e,c as t,O as r}from"./chunks/framework.1b1a3dad.js";const u=JSON.parse('{"title":"Docker 基本知識","description":"","frontmatter":{},"headers":[],"relativePath":"01-basic.md","filePath":"01-basic.md"}'),o={name:"01-basic.md"},n=r("",19),d=[n];function l(i,s,c,h,p,m){return e(),t("div",null,d)}const b=a(o,[["render",l]]);export{u as __pageData,b as default};
