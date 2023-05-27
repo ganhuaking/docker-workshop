@@ -88,7 +88,7 @@ WORKDIR /source
 COPY composer.json .
 RUN composer install
 
-COPY . .
+COPY src .
 
 RUN php vendor/bin/phpcs
 RUN php vendor/bin/phpunit

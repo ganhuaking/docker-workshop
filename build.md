@@ -73,7 +73,7 @@ ENV GO111MODULE on
 接著就可以把程式複製進 `/source` 裡。範例如下：
 
 ```dockerfile
-COPY . .
+COPY src .
 RUN go mod download
 ```
 

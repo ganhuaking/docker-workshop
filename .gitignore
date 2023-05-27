@@ -32,3 +32,5 @@ Desktop.ini
 
 # vuepress dist files
 /dist
+.vitepress/dist
+.vitepress/cache
