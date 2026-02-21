@@ -34,3 +34,6 @@ Desktop.ini
 /dist
 .vitepress/dist
 .vitepress/cache
+
+# Worktrees
+.worktrees
