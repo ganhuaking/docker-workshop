@@ -30,7 +30,10 @@ Desktop.ini
 # Node files
 /node_modules
 
-# vuepress dist files
+# vitepress dist files
 /dist
 .vitepress/dist
 .vitepress/cache
+
+# Worktrees
+.worktrees
