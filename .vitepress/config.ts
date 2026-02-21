@@ -18,6 +18,7 @@ export default defineConfig({
           { text: 'Docker Build', link: '/build' },
           { text: 'Multi-stage Build', link: '/multi-stage-build' },
           { text: 'Optimizing Dockerfile', link: '/optimizing-dockerfile' },
+          { text: 'Portainer (GUI)', link: '/GUI-portainer' },
         ]
       }
     ],
